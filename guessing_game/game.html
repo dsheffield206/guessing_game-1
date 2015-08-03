@@ -1,0 +1,32 @@
+
+<script>
+//make variables for guess, answer, message, and condition
+var guess, answer, message, condition;
+
+//ask user what middle name is
+guess = prompt ("What is my middle name?");
+//middle name defined as heather and answer
+answer = "Heather";
+console.log (answer);
+//set condition to true so that the player will be asked again what middle name is 
+condition = true;
+
+
+while (condition)
+{
+	//if they guess correctly
+	if (guess == answer)
+	{
+		//send them correct message
+		message = "That's right! Good job";
+		//change condition to false to end asking
+		condition = false;
+	}
+	else 
+	{
+		message = 'Guess again!';
+		guess = prompt ("What is your next Guess?");
+	}
+}
+alert (message)
+</script>
