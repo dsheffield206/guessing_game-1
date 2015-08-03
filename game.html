@@ -1,0 +1,19 @@
+
+<script>
+var guess, answer, message;
+
+//generate random number between 0 - 100
+answer = Math.floor(Math.random()* 100 +1); //math.random gennerates num between 0.000 - 0.9999, then we multiply by 100 to make it a whole number, then add one and math.floor cuts off 
+console.log(answer);
+guess = prompt("Im thinking of a number between 1 and 100, what is it?");
+
+if (guess == answer)
+{
+	message = "Are you a wizard? You got it right!"
+}
+else 
+{
+	message = "Oh well you had a 1% chance of winning dont cry"
+}
+alert(message)
+</script>
