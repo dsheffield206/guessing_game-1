@@ -1,40 +1,80 @@
 
 <script>
-//make variables for guess, answer, message, and condition
-var guess, answer, message, condition, chances;
-
-//ask user what middle name is
-guess = prompt ("What is my middle name?");
-//middle name defined as heather and answer
-answer = "Heather";
-console.log (answer);
-//set condition to true so that the player will be asked again what middle name is
-condition = true;
-chances = 5;
-
-while (condition && chances > 0)
+//make variables for question, answer, message, and condition
+Question = function (question, answer, message)
 {
-	//if they guess correctly
-	if (guess == answer)
-	{
-		//send them correct message
-		message = "That's right! Good job";
-		//change condition to false to end asking
-		condition = false;
-	}
-	else
-	{
-		--chances;
-		alert ('Guess again! You have ' + chances + ' left');
+  this.question = question;
+	this.answer = answer;
+	this.message = message;
+	this.guess = ' ';
+  this.run = function ()
+  {
+  	this.guess = (prompt(question)).toLowerCase();
+  	console.log(this.guess);
+		this.chances = 5;
 
-		guess = prompt ("What is your next Guess?");
-		if (chances <= 1){
-			condition = false;
-			alert('Game Over')
+		while (this.guess != this.answer && this.chances > 0)
+		{
+				--this.chances;
+				alert ('Guess again! You have ' + this.chances + ' left');
+				this.guess = prompt ("What is your next Guess?");
+				if (this.chances <= 1)
+				{
+					alert('Game Over')
+				}
 		}
-
+		if(this.guess == this.answer)
+ 				{
+ 					alert(message);
+ 				}
 	}
-	}
+}
 
-alert (message);
+var middleName = new Question ('What is my middle name?', 'heather', "That's right! Good job");
+
+middleName.run();
+
+
+
+
+
+
+
+// old version
+// var guess, answer, message, condition, chances;
+
+// //ask user what middle name is
+// guess = prompt ("What is my middle name?");
+// //middle name defined as heather and answer
+// answer = "Heather";
+// console.log (answer);
+// //set condition to true so that the player will be asked again what middle name is
+// condition = true;
+// chances = 5;
+
+// while (condition && chances > 0)
+// {
+// 	//if they guess correctly
+// 	if (guess == answer)
+// 	{
+// 		//send them correct message
+// 		message = "That's right! Good job";
+// 		//change condition to false to end asking
+// 		condition = false;
+// 	}
+// 	else
+// 	{
+// 		--chances;
+// 		alert ('Guess again! You have ' + chances + ' left');
+
+// 		guess = prompt ("What is your next Guess?");
+// 		if (chances <= 1){
+// 			condition = false;
+// 			alert('Game Over')
+// 		}
+
+// 	}
+// 	}
+
+// alert (message);
 </script>
